@@ -24,5 +24,19 @@ namespace Xenon.WPF
         {
             InitializeComponent();
         }
+
+        private void TitleBarMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton != MouseButton.Left)
+                return;
+            this.WindowState = WindowState.Normal;
+            this.DragMove();
+        }
+
+        private void MinimizeClick(object sender, RoutedEventArgs e) => this.WindowState = WindowState.Minimized;
+
+        private void MaximizeClick(object sender, RoutedEventArgs e) => this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+
+        private void CloseClick(object sender, RoutedEventArgs e) => this.Close();
     }
 }

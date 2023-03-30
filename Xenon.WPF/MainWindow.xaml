@@ -4,9 +4,94 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Xenon.WPF"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Xenon" Background="#0c0d10" Height="660" Width="1179" MinHeight="517" MinWidth="939">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="1" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style x:Key="TitlebarButton" BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Control.Background" Value="#0c0d10"/>
+                <Setter Property="Control.BorderThickness" Value="0"/>
+                <Setter Property="Control.Foreground" Value="#FAFAFA"/>
+                <Setter Property="FrameworkElement.Width" Value="46"/>
+                <Setter Property="FrameworkElement.Height" Value="29"/>
+                <Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch"/>
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Control.Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="UIElement.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <SolidColorBrush>
+                                <SolidColorBrush.Color>
+                                    <Color A="50" R="255" G="255" B="255"/>
+                                </SolidColorBrush.Color>
+                            </SolidColorBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TitlebarButtonRed" BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Control.Background" Value="#0c0d10"/>
+                <Setter Property="Control.BorderThickness" Value="0"/>
+                <Setter Property="Control.Foreground" Value="#FAFAFA"/>
+                <Setter Property="FrameworkElement.Width" Value="46"/>
+                <Setter Property="FrameworkElement.Height" Value="29"/>
+                <Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch"/>
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Control.Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="UIElement.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#e81123"/>
+                </Trigger>
+                <Trigger Property="UIElement.IsMouseCaptured" Value="True">
+                    <Setter Property="Control.Background" Value="#f1707a"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-
+        <Grid MouseDown="TitleBarMouseDown" Background="#0c0d10" Height="29" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Grid x:Name="Buttons" HorizontalAlignment="Right">
+                <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Click="MinimizeClick" Style="{StaticResource TitlebarButton}">
+                        <Path x:Name="MinimizeIcon" Width="46" Height="46" Opacity="0.7" Data="M 18,15 L 28,15 "
+                  StrokeThickness="1"
+                  Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                    </Button>
+                    <Button Click="MaximizeClick" x:Name="MaximizeButton" Style="{StaticResource TitlebarButton}">
+                        <Path x:Name="MaximizeIcon" Width="46" Height="46" Opacity="0.7"
+                  Data="M 18.5,10.5 L 27.5,10.5 27.5,19.5 18.5,19.5 Z" StrokeThickness="1"
+                  Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                    </Button>
+                    <Button Click="CloseClick" Style="{StaticResource TitlebarButtonRed}">
+                        <Path x:Name="CloseIcon" Width="46" Height="46" Opacity="0.7" Data="M 18,11 L 27,20 M 18,20 L 27,11 "
+                  StrokeThickness="1"
+                  Stroke="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
