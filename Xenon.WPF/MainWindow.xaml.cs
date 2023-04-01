@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xenon.WPF.Common;
 
 namespace Xenon.WPF
 {
@@ -38,5 +39,10 @@ namespace Xenon.WPF
         private void MaximizeClick(object sender, RoutedEventArgs e) => this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
 
         private void CloseClick(object sender, RoutedEventArgs e) => this.Close();
+
+        private void XenonLoaded(object sender, RoutedEventArgs e)
+        {
+            ViewModelPresenter.Content = Static.AuthFlow;
+        }
     }
 }

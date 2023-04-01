@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Xenon.WPF"
         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         mc:Ignorable="d"
-        Title="Xenon" Background="#0c0d10" Height="660" Width="1179" MinHeight="517" MinWidth="939">
+        Title="Xenon" Background="#0c0d10" Height="660" Width="1179" MinHeight="517" MinWidth="939" Loaded="XenonLoaded">
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="1" CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
@@ -93,5 +93,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
+        <Frame x:Name="ViewModelPresenter" Content="{x:Null}" NavigationUIVisibility="Hidden" Margin="0,34,0,0"/>
     </Grid>
 </Window>
