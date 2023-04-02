@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Ui.Controls;
 using Xenon.WPF.Common;
+using Xenon.WPF.ViewModels;
 
 namespace Xenon.WPF
 {
@@ -24,6 +26,8 @@ namespace Xenon.WPF
         public MainWindow()
         {
             InitializeComponent();
+            Static.AuthFlow = new ViewModels.AuthFlowViewModel();
+            Static.MainWindow = this;
         }
 
         private void TitleBarMouseDown(object sender, MouseButtonEventArgs e)
@@ -38,11 +42,13 @@ namespace Xenon.WPF
 
         private void MaximizeClick(object sender, RoutedEventArgs e) => this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
 
-        private void CloseClick(object sender, RoutedEventArgs e) => this.Close();
+        private void CloseClick(object sender, RoutedEventArgs e) => Application.Current.Shutdown(0);
 
         private void XenonLoaded(object sender, RoutedEventArgs e)
         {
-            ViewModelPresenter.Content = Static.AuthFlow;
+            ContentPresenter.Children.Clear();
+            AuthFlowViewModel authflow = new() { Content = null };
+            ContentPresenter.Children.Add(authflow.MainGrid);
         }
     }
 }

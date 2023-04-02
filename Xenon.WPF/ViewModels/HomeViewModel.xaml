@@ -9,7 +9,34 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomeViewModel">
 
-    <Grid>
-        
+    <Grid Name="MainGrid" Background="#0c0d10">
+        <ui:NavigationStore
+  x:Name="RootNavigation"
+  Frame="{Binding ElementName=RootFrame, Mode=OneWay}" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="60">
+            <ui:NavigationStore.Items>
+                <ui:NavigationItem
+                    Name="HomeButton"
+      Content="Home"
+      Icon="Home24"
+      PageType="{x:Type local:HomeViewModel}"
+      PageTag="HomeViewModal" VerticalAlignment="Center" />
+                <ui:NavigationItem
+                    Name="AuthFlowButton"
+      Content="AuthFlow"
+      Icon="Password24"
+      PageType="{x:Type local:AuthFlowViewModel}"
+      PageTag="AuthFlowViewModel" VerticalAlignment="Center" />
+            </ui:NavigationStore.Items>
+            <ui:NavigationStore.Footer>
+                <ui:NavigationItem
+                    Name="LogOutButton"
+                    Content="Log Out"
+                    Icon="ArrowExit20"
+                    Click="NavigationItem_Click"
+                    />
+            </ui:NavigationStore.Footer>
+        </ui:NavigationStore>
+
+
     </Grid>
 </ui:UiPage>

@@ -9,7 +9,52 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthFlowViewModel">
 
-    <Grid>
-        
+    <!-- TODO: Remove during staging -->
+    <Grid Name="MainGrid" Background="#0c0d10">
+        <!--This is so scuffed-->
+        <TextBlock x:Name="XETextLayer" FontSize="200" FontFamily="/Content/Fonts/Bold/#Rotunda" TextWrapping="NoWrap" Foreground="White" RenderTransformOrigin="0.5,0.5" Margin="-205,-1107,-1303,-581" Opacity="0.01" Visibility="Hidden">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="325"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+            <Run Text="XE XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="  XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="    XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="XE XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="  XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="    XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="XE XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="  XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+            <Run Text="    XE XE XE XE XE XE XE"/>
+            <LineBreak/>
+        </TextBlock>
+        <Label x:Name="WelcomeLabel" Foreground="White" Content="Welcome to Xenon!" HorizontalContentAlignment="Center" FontFamily="/Content/Fonts/Bold/#Rotunda" FontSize="38" Height="71" Margin="200,61,200,0" VerticalAlignment="Top" Opacity="1"/>
+        <Label x:Name="LoginLabel" Foreground="White" Content="Please log in to continue." HorizontalContentAlignment="Left" FontSize="14" Height="27" Opacity="1" Margin="188,183,212,0" VerticalAlignment="Top"/>
+        <ui:TextBox x:Name="usernameBox" Height="38" Margin="188,210,188,0" TextWrapping="Wrap" Text="" PlaceholderText="Username" PlaceholderEnabled="True" MaxLines="1" AcceptsReturn="False" AcceptsTab="False" MinWidth="400" VerticalAlignment="Top" TextChanged="CheckLoginIsValid"/>
+        <ui:PasswordBox x:Name="passwordBox" Height="37" Margin="188,262,188,0" TextWrapping="Wrap" Text="" PlaceholderText="Password" PlaceholderEnabled="True" VerticalAlignment="Top" MaxLines="1" AcceptsReturn="False" AcceptsTab="False" MinWidth="400" PasswordChar="*" TextChanged="CheckLoginIsValid"/>
+        <ui:Button x:Name="authflowCommence" Content="Log In" Margin="188,314,230,0" VerticalAlignment="Top" Height="37" HorizontalAlignment="Stretch" Click="authflowCommence_Click" IsEnabled="False"/>
+        <ui:Button x:Name="button" Height="37" Margin="0,314,188,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="37">
+            <ui:Button.Content>
+                <ui:SymbolIcon HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Symbol="Question48" FontSize="20" Height="36" Width="37"/>
+            </ui:Button.Content>
+        </ui:Button>
+        <Grid x:Name="PageContentHoster" Visibility="Hidden"/>
+        <Grid Name="AuthFlowInProgressGrid" Visibility="Hidden" Opacity="0">
+            <Border Background="#FF98BBFF" Opacity="0.3" BorderThickness="1"/>
+            <ui:ProgressRing HorizontalAlignment="Center" Height="128" VerticalAlignment="Center" Width="128" IsIndeterminate="True"/>
+        </Grid>
+
     </Grid>
 </ui:UiPage>

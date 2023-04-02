@@ -2,21 +2,37 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Lib\XenonIcon.svg" />
+    <None Remove="Content\Fonts\Bold\Nunito-ExtraBold.ttf" />
+    <None Remove="Content\Fonts\Bold\Rotunda-Bold.ttf" />
+    <None Remove="Content\Fonts\Bold\Rubik-Medium.ttf" />
+    <None Remove="Content\Fonts\Light\Nunito-ExtraLight.ttf" />
+    <None Remove="Content\Fonts\Light\Rotunda-Light.ttf" />
+    <None Remove="Content\Fonts\Light\Rubik-Light.ttf" />
+    <None Remove="Content\Fonts\Normal\Trebuchet MS.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Content\Fonts\Bold\Nunito-ExtraBold.ttf" />
+    <Resource Include="Content\Fonts\Bold\Rotunda-Bold.ttf" />
+    <Resource Include="Content\Fonts\Bold\Rubik-Medium.ttf" />
+    <Resource Include="Content\Fonts\Normal\Trebuchet MS.ttf" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SharpVectors.Wpf" Version="1.8.1" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Lib\XenonIcon.svg" />
+    <Resource Include="Content\Fonts\Light\Nunito-ExtraLight.ttf" />
+    <Resource Include="Content\Fonts\Light\Rotunda-Light.ttf" />
+    <Resource Include="Content\Fonts\Light\Rubik-Light.ttf" />
   </ItemGroup>
 
 </Project>
