@@ -26,7 +26,9 @@ namespace Xenon.WPF
         public MainWindow()
         {
             InitializeComponent();
-            Static.AuthFlow = new ViewModels.AuthFlowViewModel();
+            Static.AuthFlowMainGrid = new ViewModels.AuthFlowViewModel().MainGrid;
+            Static.HomeViewMainGrid = new ViewModels.HomeViewModel().MainGrid;
+            Static.HomeFeedModalGrid = new ViewModels.Modals.HomeFeedModal().MainGrid;
             Static.MainWindow = this;
         }
 

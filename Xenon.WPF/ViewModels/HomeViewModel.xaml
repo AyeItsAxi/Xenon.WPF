@@ -10,22 +10,47 @@
       Title="HomeViewModel">
 
     <Grid Name="MainGrid" Background="#0c0d10">
-        <ui:NavigationStore
+        <Border Name="NavBarLeft" BorderBrush="#2c2d3b" Background="#2c2d3b" BorderThickness="1" HorizontalAlignment="Left" Width="70"/>
+        <Border Name="NavBarTop" BorderBrush="#2c2d3b" Background="#2c2d3b" BorderThickness="1" Height="40" VerticalAlignment="Top" Margin="65,0,0,0">
+            <UIElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </UIElement.RenderTransform>
+            <Label x:Name="label" Content="Welcome, hackathon2023!" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Margin="-1,9,37,9"/>
+        </Border>
+        <Border Name="NavEdgeRounder" BorderBrush="#0c0d10" Background="#0c0d10" CornerRadius="5" BorderThickness="1" Margin="70,35,-17,0">
+            <Grid x:Name="navigationFrame" Margin="1,1,16,-1"/>
+        </Border>
+        <Frame x:Name="dummyFrameForNavContent" HorizontalAlignment="Left" Height="1" Margin="20,0,0,0" VerticalAlignment="Center" Width="1"/>
+        <ui:NavigationStore Visibility="Visible"
   x:Name="RootNavigation"
-  Frame="{Binding ElementName=RootFrame, Mode=OneWay}" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="60">
+  Frame="{Binding ElementName=dummyFrameForNavContent, Mode=OneWay}" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="60">
             <ui:NavigationStore.Items>
                 <ui:NavigationItem
                     Name="HomeButton"
       Content="Home"
-      Icon="Home24"
-      PageType="{x:Type local:HomeViewModel}"
+      Icon="Home24" IsActive="True" PageSource="pack://application:,,,/Xenos.WPF;component/ViewModels/HomeViewModel.xaml"
+      PageType="{x:Type ui:UiPage}"
+                    Click="HomeButton_Click"
       PageTag="HomeViewModal" VerticalAlignment="Center" />
                 <ui:NavigationItem
-                    Name="AuthFlowButton"
-      Content="AuthFlow"
-      Icon="Password24"
-      PageType="{x:Type local:AuthFlowViewModel}"
+                    Name="EventsButton"
+      Content="Events"
+      Icon="Beach24"
+      PageType="{x:Type ui:UiPage}" PageSource="pack://application:,,,/Xenos.WPF;component/ViewModels/AuthFlowViewModel.xaml"
+                    Click="EventsButton_Click"
       PageTag="AuthFlowViewModel" VerticalAlignment="Center" />
+                <ui:NavigationItem
+                    Click="InboxButton_Click"
+                    Name="InboxButton"
+      Content="Inbox"
+      Icon="MailInbox24"
+      PageType="{x:Type ui:UiPage}"
+      PageTag="NotificationViewModel" VerticalAlignment="Center" />
             </ui:NavigationStore.Items>
             <ui:NavigationStore.Footer>
                 <ui:NavigationItem
@@ -33,10 +58,12 @@
                     Content="Log Out"
                     Icon="ArrowExit20"
                     Click="NavigationItem_Click"
+                    Foreground="#C5FF7E7E"
+                    IconForeground="#C5FF7E7E"
                     />
             </ui:NavigationStore.Footer>
         </ui:NavigationStore>
-
+        <ui:SymbolIcon Symbol="Person24" FontSize="20" HorizontalAlignment="Right" Height="20" Margin="0,7,10,0" VerticalAlignment="Top" Width="20"/>
 
     </Grid>
 </ui:UiPage>

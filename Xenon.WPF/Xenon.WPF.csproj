@@ -15,6 +15,8 @@
     <None Remove="Content\Fonts\Light\Rotunda-Light.ttf" />
     <None Remove="Content\Fonts\Light\Rubik-Light.ttf" />
     <None Remove="Content\Fonts\Normal\Trebuchet MS.ttf" />
+    <None Remove="Content\Img\Sunny.png" />
+    <None Remove="Content\Img\WeatherWidgetBackground.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpVectors.Wpf" Version="1.8.1" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
@@ -33,6 +36,8 @@
     <Resource Include="Content\Fonts\Light\Nunito-ExtraLight.ttf" />
     <Resource Include="Content\Fonts\Light\Rotunda-Light.ttf" />
     <Resource Include="Content\Fonts\Light\Rubik-Light.ttf" />
+    <Resource Include="Content\Img\Sunny.png" />
+    <Resource Include="Content\Img\WeatherWidgetBackground.png" />
   </ItemGroup>
 
 </Project>

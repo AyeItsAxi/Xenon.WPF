@@ -25,11 +25,32 @@ namespace Xenon.WPF.ViewModels
         public HomeViewModel()
         {
             InitializeComponent();
+            navigationFrame.Children.Clear();
+            navigationFrame.Children.Add(new Modals.HomeFeedModal() { Content = null }.MainGrid);
         }
 
         private void NavigationItem_Click(object sender, RoutedEventArgs e)
         {
-            
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(new AuthFlowViewModel() { Content = null }.MainGrid);
+        }
+
+        private void EventsButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigationFrame.Children.Clear();
+            navigationFrame.Children.Add(new ViewModels.Modals.EventsFeedViewModel() {  Content = null }.MainGrid);
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigationFrame.Children.Clear();
+            navigationFrame.Children.Add(new Modals.HomeFeedModal() { Content = null }.MainGrid);
+        }
+
+        private void InboxButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigationFrame.Children.Clear();
+            navigationFrame.Children.Add(new Modals.NotificationViewModel() { Content = null }.MainGrid);
         }
     }
 }

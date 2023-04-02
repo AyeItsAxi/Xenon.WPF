@@ -10,6 +10,7 @@
       Title="AuthFlowViewModel">
 
     <!-- TODO: Remove during staging -->
+    <!-- Not in staging yet but 1 day later - Literally, remove what?? The page??-->
     <Grid Name="MainGrid" Background="#0c0d10">
         <!--This is so scuffed-->
         <TextBlock x:Name="XETextLayer" FontSize="200" FontFamily="/Content/Fonts/Bold/#Rotunda" TextWrapping="NoWrap" Foreground="White" RenderTransformOrigin="0.5,0.5" Margin="-205,-1107,-1303,-581" Opacity="0.01" Visibility="Hidden">

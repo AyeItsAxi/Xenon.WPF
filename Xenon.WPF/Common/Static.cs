@@ -11,5 +11,9 @@ namespace Xenon.WPF.Common
         public static UiPage Home = new Xenon.WPF.ViewModels.HomeViewModel();
         public static Window MainWindow;
         public static string? AuthToken;
+        public static Grid AuthFlowMainGrid;
+        public static Grid HomeViewMainGrid;
+        public static Grid HomeFeedModalGrid;
+        public static Grid HomeViewNavigationGrid;
     }
 }
