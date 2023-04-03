@@ -19,6 +19,7 @@
             <Label x:Name="label1_Copy" Content="April 2, 2023 at 3:18 PM" FontSize="14" HorizontalAlignment="Left" Height="24" Margin="87,86,0,0" VerticalAlignment="Top" Width="211" Opacity="0.7"/>
             <Ellipse HorizontalAlignment="Left" Height="64" Margin="712,373,0,0" Stroke="#0c0d10" Fill="#464694" VerticalAlignment="Top" Width="64" Visibility="Hidden"/>
             <ui:SymbolIcon HorizontalAlignment="Left" Margin="712,373,0,0" VerticalAlignment="Top" Height="64" Width="64" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="38" Symbol="Compose28" Visibility="Hidden "/>
+            <ListBox x:Name="listBox" Margin="40,170,40,25" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="listBox_SelectionChanged"/>
         </Grid>
         <Grid Name="ForumPost2" Visibility="Hidden">
             <Border BorderBrush="#2c2d3b" Background="#2c2d3b" CornerRadius="5" BorderThickness="1" Height="118" Margin="40,173,40,0" VerticalAlignment="Top"/>
@@ -40,7 +41,7 @@
             <Border BorderBrush="#2c2d3b" Background="#2c2d3b" CornerRadius="5" BorderThickness="1" Margin="40,35,40,35">
                 <ui:SymbolIcon HorizontalAlignment="Left" Height="64" Margin="19,9,0,0" VerticalAlignment="Top" Width="64" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="64" Symbol="Person48"/>
             </Border>
-            <Label x:Name="ExpandedForumTitle" Content="Hackathon 2023" Foreground="White" FontSize="30" HorizontalAlignment="Left" Height="67" Margin="131,47,0,0" VerticalAlignment="Top" Width="592"/>
+            <Label x:Name="ExpandedForumTitle" Content="Hackathon 2023" Foreground="White" FontSize="30" HorizontalAlignment="Left" Height="67" Margin="131,47,0,0" VerticalAlignment="Top" Width="1054"/>
             <Label x:Name="ExpandedForumPostedAt" Content="April 2, 2023 at 3:18 PM" Height="20" Margin="131,90,438,0" VerticalAlignment="Top"/>
             <Border BorderBrush="#0c0d10" BorderThickness="1" Height="2" Margin="62,119,62,0" VerticalAlignment="Top"/>
             <TextBlock x:Name="ExpandedForumPostDetails" Height="250" Margin="62,148,62,0" TextWrapping="Wrap" Text="Desert Vista High School is hosting a hackathon competition for all students in the Tempe Union High School district to compete in. The competition starts March 31st at 5:30 PM and ends April 2nd at 4 PM. The opening ceremony is March 31st at 5:30 PM. You do not have to attend the opening ceremony in order to participate, you just have to sign up on the Google Form provided. If you are accepted, you will be invited to join the Discord server with the judges and mentors, so you can ask any questions if you ever need any help with your projects." Foreground="White" Opacity="0.9" FontSize="20" VerticalAlignment="Top"/>

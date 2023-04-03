@@ -30,8 +30,12 @@
         <Border BorderBrush="#14151b" Background="#14151b" CornerRadius="5" BorderThickness="1" Margin="0,250,30,25" HorizontalAlignment="Right" Width="355"/>
         <Label Content="EVENTS" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Height="21" Margin="44,264,0,0" VerticalAlignment="Top" Width="87"/>
         <Label Content="NOTIFICATIONS" Foreground="White" FontWeight="Bold" Height="21" Margin="0,264,259,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112"/>
-        <Label x:Name="label" Content="no upcoming events" HorizontalContentAlignment="Center" FontStyle="Italic" HorizontalAlignment="Left" Height="26" Margin="137,328,0,0" VerticalAlignment="Top" Width="114"/>
+        <Label x:Name="label" Content="no upcoming events" HorizontalContentAlignment="Center" FontStyle="Italic" HorizontalAlignment="Left" Height="26" Margin="137,328,0,0" VerticalAlignment="Top" Width="114" Visibility="Hidden"/>
         <Label x:Name="label_Copy" Content="no new notifications" HorizontalContentAlignment="Center" FontStyle="Italic" Height="19" Margin="0,328,150,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114"/>
-
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Margin="40,290,0,36" Width="334" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Grid Name="FeedLoadInProgressGrid" Visibility="Hidden" Opacity="0">
+            <Border Background="#FF98BBFF" Opacity="0.3" BorderThickness="1"/>
+            <ui:ProgressRing HorizontalAlignment="Center" Height="128" VerticalAlignment="Center" Width="128" IsIndeterminate="True"/>
+        </Grid>
     </Grid>
 </ui:UiPage>

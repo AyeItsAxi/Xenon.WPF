@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.ServiceModel.Syndication;
+using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
 using Xenon.WPF.ViewModels;
@@ -15,5 +17,6 @@ namespace Xenon.WPF.Common
         public static Grid HomeViewMainGrid;
         public static Grid HomeFeedModalGrid;
         public static Grid HomeViewNavigationGrid;
+        public static List<SyndicationItem> asd;
     }
 }

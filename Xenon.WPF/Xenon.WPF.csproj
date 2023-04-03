@@ -27,8 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+    <PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpVectors.Wpf" Version="1.8.1" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="7.0.0" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 

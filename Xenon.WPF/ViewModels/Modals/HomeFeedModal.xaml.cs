@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Xml;
 using Newtonsoft.Json;
 using Wpf.Ui.Controls;
 using Xenon.WPF.Common.Weather;
@@ -47,7 +49,11 @@ namespace Xenon.WPF.ViewModels.Modals
             jsresp = jsresp.Replace("]", "");
             weather = JsonConvert.DeserializeObject<Weather>(jsresp);
             await Task.Delay(500);
+            var reader = XmlReader.Create("https://www.tempe.gov/Home/Components/RssFeeds/RssFeed/View?ctID=6&cateIDs=15");
+            var feed = SyndicationFeed.Load(reader);
+            Common.Static.asd = feed.Items.ToList();
             SetContent();
+            StartStatusBarTimer();
         }
         
         private void StartStatusBarTimer()
@@ -78,6 +84,10 @@ namespace Xenon.WPF.ViewModels.Modals
             TemperatureCurrent.Content = $"{ConvertKelvinToFahrenheit(weather.main.temp)}";
             TemperatureLow.Text = $"{ConvertKelvinToFahrenheit(weather.main.temp_min)}";
             TemperatureHigh.Text = $"{ConvertKelvinToFahrenheit(weather.main.temp_max)}";
+            for (int i = 0; i < Common.Static.asd.Count; i++)
+            {
+                listBox.Items.Add(Common.Static.asd[i].Title.Text);
+            }
         }
 
         public string GetIPV4Address()
